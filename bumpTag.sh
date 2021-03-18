@@ -1,16 +1,14 @@
 #!/bin/bash
 set -eu
 
-git tag
-git tag -l | tail -n 1
 lastTag=$(git tag -l | tail -n 1)
-echo "lastTag: $lastTag"
 version=${lastTag##*-}
+echo "Current version is: $version"
+
 major=${version%.*}
 minor=${version#*.}
-echo "major: $major, minor: $minor"
 nextMinor=$((minor+1))
-
-echo "next version: $major.$nextMinor"
+echo "Next version will be: $major.$nextMinor"
 
 git tag "$major.$nextMinor"
+git push origin --tags
