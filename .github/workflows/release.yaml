@@ -7,12 +7,12 @@ jobs:
   merge-develop:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Merge develop into master
         run: |
-          git fetch
-          git checkout origin/master
-          git merge origin/develop
+          git merge develop
           git push
 #  tag-master:
 #    needs: merge-develop
