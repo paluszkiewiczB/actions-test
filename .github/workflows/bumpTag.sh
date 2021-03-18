@@ -6,4 +6,4 @@ major=${version%.*}
 minor=${version#*.}
 nextMinor=$((minor+1))
 
-git tag major.$nextMinor
+git tag "$major.$nextMinor"
