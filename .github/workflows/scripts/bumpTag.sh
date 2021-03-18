@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eu
 
+git tag
+git tag -l | tail -n 1
 lastTag=$(git tag -l | tail -n 1)
 echo "lastTag: $lastTag"
 version=${lastTag##*-}
