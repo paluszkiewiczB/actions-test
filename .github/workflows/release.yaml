@@ -19,5 +19,5 @@ jobs:
       - uses: actions/checkout@master
       - name: Tag master
         run: |
-          chmod +x ./github/workflows/scriptsbumpTag.sh
-          ./github/workflows/scriptsbumpTag.sh
+          chmod +x ./github/workflows/scripts/bumpTag.sh
+          ./github/workflows/scripts/bumpTag.sh
