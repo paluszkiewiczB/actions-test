@@ -9,15 +9,16 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Merge develop into master
-        run: git merge develop
+        run: |
+        git fetch
+        git merge develop
   tag-master:
     needs: merge-develop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Tag master
-        working-directory: ${GITHUB_WORKSPACE}/.github/scripts"
+        working-directory: scripts
         run: |
-          echo ls: `ls`
           chmod +x bumpTag.sh
           sh bumpTag.sh
