@@ -20,5 +20,5 @@ jobs:
       - name: Tag master
         working-directory: scripts
         run: |
-          chmod +x bumpTag.sh
-          sh bumpTag.sh
+          chmod +x ./bumpTag.sh
+          sh ./bumpTag.sh
