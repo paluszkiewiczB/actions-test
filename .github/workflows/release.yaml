@@ -13,13 +13,11 @@ jobs:
           git merge develop
           git push
   tag-master:
-    env:
-      working-directory: ./github/workflows/scripts
     needs: merge-develop
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Tag master
         run: |
-          chmod +x ./bumpTag.sh
-          ./bumpTag.sh
+          chmod +x ./github/workflows/scriptsbumpTag.sh
+          ./github/workflows/scriptsbumpTag.sh
