@@ -13,7 +13,9 @@ jobs:
       - name: Merge develop into master
         run: |
           git fetch
-          git merge develop
+          git branch
+          git log | tail -n 1
+          git merge origin/develop
           git push
 #  tag-master:
 #    needs: merge-develop
