@@ -15,12 +15,14 @@ jobs:
           git checkout master
           git merge develop
           git push
-#  tag-master:
-#    needs: merge-develop
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@master
-#      - name: Tag master
-#        run: |
-#          chmod +x ./bumpTag.sh
-#          ./bumpTag.sh
+  tag-master:
+    needs: merge-develop
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Tag master
+        run: |
+          chmod +x ./bumpTag.sh
+          ./bumpTag.sh
