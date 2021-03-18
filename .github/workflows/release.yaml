@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@master
       - name: Merge develop into master
         run: |
-        git fetch
-        git merge develop
+          git fetch
+          git merge develop
   tag-master:
     needs: merge-develop
     runs-on: ubuntu-latest
