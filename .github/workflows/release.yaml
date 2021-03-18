@@ -10,7 +10,6 @@ jobs:
       - uses: actions/checkout@master
       - name: Merge develop into master
         run: |
-          git fetch develop
           git merge develop
           git push
   tag-master:
