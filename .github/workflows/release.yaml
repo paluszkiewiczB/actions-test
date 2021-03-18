@@ -18,5 +18,7 @@ jobs:
       - name: Tag master
         working-directory: ${GITHUB_WORKSPACE}/.github/scripts"
         run: |
+          ls
+          echo ls: `ls`
           chmod +x bumpTag.sh
           sh bumpTag.sh
