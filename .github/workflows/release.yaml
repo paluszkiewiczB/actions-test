@@ -18,5 +18,7 @@ jobs:
       - name: Tag master
         working-directory: ./scripts
         run: |
+          echo current directory: `pwd`
+          echo files: `ls -la`
           chmod +x bumpTag.sh
           sh bumpTag.sh
