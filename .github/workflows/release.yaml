@@ -6,8 +6,6 @@ on:
 jobs:
   merge-develop:
     runs-on: ubuntu-latest
-    env:
-      working-directory: .github/workflows/scripts
     steps:
       - uses: actions/checkout@master
       - name: Merge develop into master
@@ -15,6 +13,8 @@ jobs:
           git merge develop
           git push
   tag-master:
+    env:
+      working-directory: ./github/workflows/scripts
     needs: merge-develop
     runs-on: ubuntu-latest
     steps:
