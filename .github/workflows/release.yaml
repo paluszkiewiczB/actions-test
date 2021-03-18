@@ -1,10 +1,20 @@
 name: release
-on: push
-  branch:
-    - develop
+on:
+  push:
+    branches:
+      - develop
 jobs:
-  build:
+  merge-develop:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name:
+      - name: Merge develop into master
+      - run: git merge develop
+  tag-master:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Tag master
+      - run: |
+          chmod +x scripts/bumpTag.sh
+          sh scripts/bumpTag.sh
