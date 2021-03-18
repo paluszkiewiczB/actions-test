@@ -10,14 +10,16 @@ jobs:
       - uses: actions/checkout@master
       - name: Merge develop into master
         run: |
+          git fetch
+          git checkout origin/master
           git merge origin/develop
           git push
-  tag-master:
-    needs: merge-develop
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: Tag master
-        run: |
-          chmod +x ./bumpTag.sh
-          ./bumpTag.sh
+#  tag-master:
+#    needs: merge-develop
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@master
+#      - name: Tag master
+#        run: |
+#          chmod +x ./bumpTag.sh
+#          ./bumpTag.sh
