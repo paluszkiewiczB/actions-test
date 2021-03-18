@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@master
       - name: Merge develop into master
         run: |
-          git fetch
+          git fetch develop
           git merge develop
           git push
   tag-master:
@@ -20,9 +20,5 @@ jobs:
       - uses: actions/checkout@master
       - name: Tag master
         run: |
-          lastTag=$(git tag -l | tail -n 1)
-          version=${lastTag##*-}
-          major=${version%.*}
-          minor=${version#*.}
-          nextMinor=$((minor+1))
-          git tag "$major.$nextMinor"
+          chmod +x ./bumpTag.sh
+          ./bumpTag.sh
