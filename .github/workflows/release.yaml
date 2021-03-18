@@ -12,6 +12,7 @@ jobs:
           fetch-depth: 0
       - name: Merge develop into master
         run: |
+          git fetch
           git merge develop
           git push
 #  tag-master:
