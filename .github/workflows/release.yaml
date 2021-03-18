@@ -16,9 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Tag master
-        working-directory: ./scripts
+        working-directory: ${GITHUB_WORKSPACE}/.github/scripts"
         run: |
-          echo current directory: `pwd`
-          echo files: `ls -la`
           chmod +x bumpTag.sh
           sh bumpTag.sh
