@@ -9,12 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Merge develop into master
-      - run: git merge develop
+        run: git merge develop
   tag-master:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
       - name: Tag master
-      - run: |
+        run: |
           chmod +x scripts/bumpTag.sh
           sh scripts/bumpTag.sh
